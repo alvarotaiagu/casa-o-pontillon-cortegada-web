@@ -1,0 +1,59 @@
+/* El 3D del Miño (js/3d/): lo que hay dentro de #rio-marco. El tamaño del marco y los mandos son de la web.
+   Paleta: noche #070b14 · valle #16223a · galería #2e6b5e · luna #c9d6e8 · luz cálida #f1c27d · cal #f2ede3 */
+
+/* El marco y el póster (debajo de todo; con 3D, el canvas entra fundido encima y el póster se queda quieto) */
+.rio-marco { position: relative; overflow: hidden; background: #070b14; isolation: isolate; }
+.rio-marco > picture { display: contents; }
+#rio-poster { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* El lienzo: cubre su hueco. Si solo cambia el alto (barra del móvil) el búfer no se rehace: object-fit recorta sin deformar */
+.rio-lienzo, #rio-rotulos { position: absolute; inset: 0; }
+canvas.lienzo3d { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; opacity: 0; transition: opacity .7s ease; }
+#rio.con-3d canvas.lienzo3d { opacity: 1; }
+#rio.con-3d:not(.volando) .rio-lienzo { cursor: grab; }
+#rio.con-3d .rio-lienzo:active { cursor: grabbing; }
+.rio-lienzo:focus-visible { outline: 2px solid #f1c27d; outline-offset: -4px; }
+
+/* En plano: la imagen (la crea el 3D al pulsar) entera, sobre el fondo de noche; el lienzo se oculta */
+.rio-marco > .rio-plano { display: contents; }
+#rio-plano-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #070b14; display: none; }
+.rio-marco.plano #rio-plano-img { display: block; }
+.rio-marco.plano .rio-lienzo { visibility: hidden; pointer-events: none; }
+
+/* Rótulos sobre el relieve (en 3D y en plano) */
+#rio-rotulos { pointer-events: none; overflow: hidden; z-index: 1; }
+.rotulo3d { position: absolute; left: 0; top: 0; transform: translate(-50%, -100%); font: 500 12px/1.2 "Geist", system-ui, sans-serif; color: #f2ede3; white-space: nowrap;
+  padding: 4px 8px; border-radius: 6px; background: rgb(7 11 20 / .7); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); border: 1px solid rgb(201 214 232 / .25); will-change: transform; }
+.rotulo3d small { display: block; font: 400 10.5px/1.2 "Geist Mono", ui-monospace, monospace; opacity: .78; }
+.rotulo3d::after { content: ""; position: absolute; left: 50%; top: 100%; width: 1px; height: 12px; background: rgb(201 214 232 / .6); }
+.rotulo3d.casa { background: #2e6b5e; border-color: #6fb5a1; color: #fff; }
+.rotulo3d.casa::after { background: #6fb5a1; }
+.rotulo3d.rio { background: none; border: 0; -webkit-backdrop-filter: none; backdrop-filter: none; padding: 0; font: italic 400 16px/1 "Newsreader", Georgia, serif; color: #c9d6e8;
+  text-shadow: 0 1px 6px rgb(0 0 0 / .85), 0 0 2px rgb(0 0 0 / .6); }
+.rotulo3d.rio::after { display: none; }
+.rio-marco.plano .rotulo3d { -webkit-backdrop-filter: none; backdrop-filter: none; }
+
+/* Lo que va encima del lienzo: el chip de ahora, «Mover el mapa» (táctil) y el aviso de carga */
+.rio-chip, .rio-carga, .rio-mover { position: absolute; z-index: 2; margin: 0; font: 400 12.5px/1.2 "Geist Mono", ui-monospace, monospace; color: #f2ede3;
+  background: rgb(7 11 20 / .72); border: 1px solid rgb(201 214 232 / .22); border-radius: 99px; padding: 7px 12px; -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.rio-chip { left: 12px; top: 12px; max-width: calc(100% - 24px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rio-carga { left: 12px; bottom: 12px; max-width: calc(100% - 24px); }
+.rio-carga[hidden], .rio-mover[hidden] { display: none; }
+.rio-mover { right: 12px; bottom: 12px; font: 500 14px/1 "Geist", system-ui, sans-serif; padding: 11px 16px; min-height: 44px; cursor: pointer; }
+.rio-mover:focus-visible { outline: 2px solid #f1c27d; outline-offset: 2px; }
+.rio-marco.mapa-suelto .rio-mover { background: #2e6b5e; border-color: #6fb5a1; }
+.rio-marco.mapa-suelto { box-shadow: inset 0 0 0 2px #6fb5a1; }
+/* con «Mover el mapa» abajo a la derecha, el aviso de carga no se le monta */
+@media (pointer: coarse) { .rio-carga { max-width: calc(100% - 170px); } }
+
+@media (max-width: 600px) {
+  .rotulo3d { font-size: 11px; padding: 3px 6px; }
+  .rotulo3d small { font-size: 9.5px; }
+  .rotulo3d.rio { font-size: 14px; }
+  .rio-chip, .rio-carga { font-size: 11px; padding: 6px 10px; }
+  .rio-chip { white-space: normal; border-radius: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  canvas.lienzo3d { transition: none; }
+}

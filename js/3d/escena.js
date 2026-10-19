@@ -9,6 +9,7 @@ const BASE = new URL('../../img/terreno/', import.meta.url);
 const rad = Math.PI / 180;
 
 // Móvil: malla 256, ortofoto 1792 y la casa a 1024; escritorio: 384, 2880 y 1536
+const REDUCIDO = matchMedia('(prefers-reduced-motion: reduce)').matches;
 export const MOVIL = matchMedia('(pointer: coarse)').matches || Math.min(screen.width, screen.height) < 700;
 
 // ---------- Datos ----------
@@ -288,7 +289,7 @@ export function crearMotor(D, { S, alFallar } = {}) {
   function bajarCalidad() {
     calidad.nivel++;
     if (dpr > 1) dpr = Math.max(1, dpr - .25);
-    else if (renderer.shadowMap.enabled) { renderer.shadowMap.enabled = false; sl.castShadow = false; tierra.material.needsUpdate = finca.material.needsUpdate = true; uA.reflejo.value = .75; calidad.sombras = false; }
+    else if (renderer.shadowMap.enabled) { renderer.shadowMap.enabled = false; sl.castShadow = false; tierra.material.needsUpdate = finca.material.needsUpdate = true; calidad.sombras = false; }
     else if (tamR > 256) { tamR = 256; rtR.setSize(tamR, tamR); calidad.reflejo = tamR; }
     else if (dpr > .75) dpr = .75;
     else return;
@@ -300,7 +301,7 @@ export function crearMotor(D, { S, alFallar } = {}) {
     if (parado || !visible || document.hidden) { ultimo = 0; return; }
     const dt = ultimo ? Math.min(120, t - ultimo) : 16;
     const sigue = vista.cuadro(t, dt) !== false;
-    if (sigue && !matchMedia('(prefers-reduced-motion: reduce)').matches) uA.time.value += dt / 1000 * .35;
+    if (sigue && !REDUCIDO) uA.time.value += dt / 1000 * .35;
     renderer.render(escena, vista.camara);
     vista.trasPintar?.();
     if (!pintada) { pintada = true; requestAnimationFrame(() => { if (!parado) vista.alPrimerFotograma?.(); }); }

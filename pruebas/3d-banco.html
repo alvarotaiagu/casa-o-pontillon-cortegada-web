@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Banco del 3D · Casa O Pontillón</title>
+<link rel="icon" href="data:,">
+<!-- Banco propio del 3D: el marcado del contrato de #rio con estilos mínimos. No es la web.
+     ?poster=1 pone el marco a pantalla completa (lo usa pruebas/3d-poster.mjs). -->
+<script>if (new URLSearchParams(location.search).has('poster')) document.documentElement.classList.add('modo-poster');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap">
+<link rel="stylesheet" href="../css/3d.css">
+<style>
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 "Geist", system-ui, sans-serif; background: #f2ede3; color: #16223a; }
+  .relleno { padding: 4rem 6vw; min-height: 110vh; }
+  .alrededor { background: #070b14; color: #f2ede3; padding: 3rem 0 4rem; }
+  .env { width: min(1200px, calc(100% - 32px)); margin-inline: auto; }
+  .alrededor h2 { font: italic 400 2.4rem/1.05 "Newsreader", Georgia, serif; margin: 0 0 1rem; }
+  .rio-marco { aspect-ratio: 16 / 10; border-radius: 12px; }
+  @media (max-width: 700px) { .rio-marco { aspect-ratio: 4 / 5; } }
+  .rio-mandos { display: grid; gap: .7rem; margin-top: 1rem; }
+  .rio-mandos input[type=range] { width: min(100%, 36rem); accent-color: #2e6b5e; }
+  .fila { display: flex; flex-wrap: wrap; gap: .4rem; }
+  .chip { font: 500 14px/1 "Geist", sans-serif; color: #f2ede3; background: #16223a; border: 1px solid rgb(201 214 232 / .3); border-radius: 99px; padding: 10px 14px; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: #2e6b5e; border-color: #6fb5a1; }
+  .rio-lectura { max-width: 60ch; margin: 0; color: #c9d6e8; }
+  .rio-fuente { font-size: 12px; opacity: .7; margin: 0; }
+  .modo-poster body > :not(.alrededor), .modo-poster .alrededor > :not(#rio), .modo-poster .rio-mandos { display: none !important; }
+  .modo-poster .alrededor { padding: 0; }
+  .modo-poster .rio-marco { position: fixed; inset: 0; aspect-ratio: auto; border-radius: 0; }
+</style>
+</head>
+<body>
+<section class="relleno"><h1>Banco del 3D del Miño</h1><p>Relleno: la web antes de «Alrededor».</p></section>
+
+<section class="alrededor" id="alrededor" aria-labelledby="t-alrededor">
+  <div class="env"><h2 id="t-alrededor">En la curva del Miño</h2></div>
+  <div class="env" id="rio">
+    <div class="rio-marco" id="rio-marco">
+      <picture>
+        <source type="image/avif" media="(max-aspect-ratio: 1/1)" srcset="../img/terreno/poster-rio-movil-900.avif">
+        <source type="image/webp" media="(max-aspect-ratio: 1/1)" srcset="../img/terreno/poster-rio-movil-900.webp">
+        <source media="(max-aspect-ratio: 1/1)" srcset="../img/terreno/poster-rio-movil-900.jpg">
+        <source type="image/avif" srcset="../img/terreno/poster-rio-1600.avif">
+        <source type="image/webp" srcset="../img/terreno/poster-rio-1600.webp">
+        <img id="rio-poster" src="../img/terreno/poster-rio-1600.jpg" alt="El valle del Miño en relieve, con la S del embalse de Frieira y la casa dentro de una curva" width="1600" height="1000" loading="lazy" decoding="async">
+      </picture>
+      <div class="rio-lienzo" id="rio-lienzo"></div>
+      <div class="rotulos" id="rio-rotulos" aria-hidden="true"></div>
+      <button type="button" class="rio-mover" id="rio-mover" hidden>Mover el mapa</button>
+      <p class="rio-carga" id="rio-carga">Cargando el relieve…</p>
+      <p class="rio-chip" id="rio-chip">Ahora en O Pontillón…</p>
+    </div>
+    <div class="rio-mandos">
+      <label for="rio-hora">Hora de hoy en O Pontillón: <b id="rio-hora-txt">--:--</b></label>
+      <input type="range" id="rio-hora" min="0" max="1439" step="1" value="720">
+      <div class="fila" role="group" aria-label="Momentos del día"><button type="button" class="chip" data-h="ahora">Ahora</button><button type="button" class="chip" data-h="sale">Amanecer</button><button type="button" class="chip" data-h="mediodia">Mediodía</button><button type="button" class="chip" data-h="pone">Atardecer</button><button type="button" class="chip" data-h="noche">Noche</button></div>
+      <p class="rio-lectura" id="rio-lectura" aria-live="polite"></p>
+      <div class="fila" role="group" aria-label="Vista"><button type="button" class="chip" id="rio-volar">Volar por el río</button><button type="button" class="chip" id="rio-casa" aria-pressed="false">Bajar a la casa</button><button type="button" class="chip" id="rio-3d" aria-pressed="true">En 3D</button><button type="button" class="chip" id="rio-plano" aria-pressed="false">En plano</button></div>
+      <p class="rio-fuente">Relieve MDT05 y ortofoto PNOA © Instituto Geográfico Nacional (CC BY 4.0). Lugares: © colaboradores de OpenStreetMap.</p>
+    </div>
+  </div>
+</section>
+<section class="relleno"><h2>Después</h2></section>
+<script type="module" src="../js/3d/arranque.js"></script>
+</body>
+</html>

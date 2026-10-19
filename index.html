@@ -41,8 +41,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"></noscript>
-<link rel="stylesheet" href="css/estilos.css?v=212accc4">
-<link rel="stylesheet" href="css/3d.css">
+<link rel="stylesheet" href="css/estilos.css?v=b2f2e1e9">
+<link rel="stylesheet" href="css/3d.css?v=175eb4e5">
 <script type="application/ld+json">{
   "@context": "https://schema.org",
   "@type": "LodgingBusiness",
@@ -235,7 +235,14 @@
   </div>
   <div class="env ancho" id="rio">
     <div class="rio-marco" id="rio-marco">
-      <img id="rio-poster" class="rio-poster" src="img/terreno/plano.jpg" alt="El valle del Miño en relieve, con la S del embalse de Frieira y la casa dentro de una curva"  loading="lazy" decoding="async">
+      <picture>
+        <source type="image/avif" media="(max-aspect-ratio: 1/1)" srcset="img/terreno/poster-rio-movil-900.avif">
+        <source type="image/webp" media="(max-aspect-ratio: 1/1)" srcset="img/terreno/poster-rio-movil-900.webp">
+        <source media="(max-aspect-ratio: 1/1)" srcset="img/terreno/poster-rio-movil-900.jpg">
+        <source type="image/avif" srcset="img/terreno/poster-rio-1600.avif">
+        <source type="image/webp" srcset="img/terreno/poster-rio-1600.webp">
+        <img id="rio-poster" class="rio-poster" src="img/terreno/poster-rio-1600.jpg" alt="El valle del Miño en relieve, con la S del embalse de Frieira y la casa dentro de una curva" width="1600" height="1000" loading="lazy" decoding="async">
+      </picture>
       <div class="rio-lienzo" id="rio-lienzo"></div>
       <div class="rotulos" id="rio-rotulos" aria-hidden="true"></div>
       <button type="button" class="rio-mover" id="rio-mover" hidden>Mover el mapa</button>
@@ -426,6 +433,6 @@
 
 <script src="js/escena.js?v=d40e0c4d" defer></script>
 <script src="js/main.js?v=af0c3372" defer></script>
-<script type="module" src="js/3d/arranque.js" onerror="window.__pont3dFallo &amp;&amp; window.__pont3dFallo()"></script>
+<script type="module" src="js/3d/arranque.js?v=4f90e2fc" onerror="window.__pont3dFallo &amp;&amp; window.__pont3dFallo()"></script>
 </body>
 </html>
