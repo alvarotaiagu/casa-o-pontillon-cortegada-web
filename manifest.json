@@ -1,0 +1,21 @@
+{
+ "name": "Casa O Pontillón",
+ "short_name": "O Pontillón",
+ "lang": "es",
+ "start_url": "./",
+ "display": "browser",
+ "background_color": "#070b14",
+ "theme_color": "#070b14",
+ "icons": [
+  {
+   "src": "img/marca/apple-touch-icon.png",
+   "sizes": "180x180",
+   "type": "image/png"
+  },
+  {
+   "src": "img/marca/icono-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ]
+}

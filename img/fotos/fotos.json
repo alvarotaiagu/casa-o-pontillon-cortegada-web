@@ -1,0 +1,301 @@
+[
+ {
+  "nombre": "torre",
+  "anchos": [
+   384
+  ],
+  "ancho": 384,
+  "alto": 683,
+  "origen": "booking/559113660.jpg",
+  "ancho_origen": 384,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "fachada",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415526.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "trasera",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415531.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "lavadoiro",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415539.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "valle",
+  "anchos": [
+   428
+  ],
+  "ancho": 428,
+  "alto": 900,
+  "origen": "booking/559117972.jpg",
+  "ancho_origen": 428,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "camino",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415542.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "lareira",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415520.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "entrada",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415528.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "piedra",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113804.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "mantel",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415525.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "comedor",
+  "anchos": [
+   480,
+   800,
+   1200,
+   1280
+  ],
+  "ancho": 1280,
+  "alto": 720,
+  "origen": "booking/559116748.jpg",
+  "ancho_origen": 1280,
+  "alto_origen": 720
+ },
+ {
+  "nombre": "salon",
+  "anchos": [
+   480,
+   800,
+   1200,
+   1280
+  ],
+  "ancho": 1280,
+  "alto": 720,
+  "origen": "booking/559116746.jpg",
+  "ancho_origen": 1280,
+  "alto_origen": 720
+ },
+ {
+  "nombre": "salon-2",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415537.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "cocina",
+  "anchos": [
+   480,
+   800,
+   1200
+  ],
+  "ancho": 1200,
+  "alto": 900,
+  "origen": "booking/739415532.jpg",
+  "ancho_origen": 1200,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "cocina-2",
+  "anchos": [
+   480,
+   800,
+   1200,
+   1280
+  ],
+  "ancho": 1280,
+  "alto": 720,
+  "origen": "booking/559116749.jpg",
+  "ancho_origen": 1280,
+  "alto_origen": 720
+ },
+ {
+  "nombre": "dorm-verde",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113882.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "dorm-cuadros",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113832.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "dorm-dos",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113799.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "dorm-blanco",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113842.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "dorm-morado",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113863.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "dorm-amarillo",
+  "anchos": [
+   480,
+   800,
+   1024
+  ],
+  "ancho": 1024,
+  "alto": 683,
+  "origen": "booking/559113808.jpg",
+  "ancho_origen": 1024,
+  "alto_origen": 683
+ },
+ {
+  "nombre": "dorm-rosa",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415534.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "bano",
+  "anchos": [
+   480,
+   675
+  ],
+  "ancho": 675,
+  "alto": 900,
+  "origen": "booking/739415523.jpg",
+  "ancho_origen": 675,
+  "alto_origen": 900
+ },
+ {
+  "nombre": "bano-2",
+  "anchos": [
+   428
+  ],
+  "ancho": 428,
+  "alto": 900,
+  "origen": "booking/559117971.jpg",
+  "ancho_origen": 428,
+  "alto_origen": 900
+ }
+]

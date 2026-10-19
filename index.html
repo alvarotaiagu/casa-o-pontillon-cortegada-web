@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa O Pontillón · Casa rural en Cortegada, junto al Miño</title>
+<meta name="description" content="Casa entera de granito para doce en Os Muíños, Cortegada (Ourense), dentro de una curva del Miño. Seis dormitorios con su baño, comedor con lareira, asador y mascotas gratis.">
+<meta name="theme-color" content="#070b14">
+<link rel="icon" href="img/marca/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="img/marca/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="img/marca/apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="Casa O Pontillón · Dormir con la ventana abierta, oyendo el río">
+<meta property="og:description" content="Casa de granito para doce en Cortegada, en una curva del Miño. Seis dormitorios, cada uno con su baño.">
+<meta property="og:image" content="img/og.jpg">
+<script>
+/* Antes de pintar: clases de estado, mando de maqueta y red de seguridad de la cortina */
+(function () {
+  var d = document.documentElement, reduce = false;
+  try { reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
+  d.classList.add('js', reduce ? 'sin-movimiento' : 'con-movimiento');
+  // MANDO DE MAQUETA: la densidad solo se aplica si la URL lleva ?revision
+  try { var q = new URLSearchParams(location.search); if (q.has('revision')) { d.classList.add('en-revision'); if (q.get('densidad') === 'sobria') d.classList.add('densidad-sobria'); } } catch (e) {}
+  // fin del MANDO DE MAQUETA
+  window.__pontFuera = function () {
+    if (d.classList.contains('cortina-fuera')) return;
+    d.classList.add('cortina-fuera'); d.classList.remove('cortina-puesta');
+    document.dispatchEvent(new Event('pontillon:cortina-fuera'));
+  };
+  window.__pont3dFallo = function () { var e = document.getElementById('rio'); if (e && !e.classList.contains('con-3d')) e.classList.add('sin-3d'); var c = document.getElementById('rio-carga'); if (c) c.textContent = 'El 3D no ha cargado: aquí tienes el río en una imagen.'; };
+  if (reduce) { window.__pontFuera(); return; }
+  d.classList.add('cortina-puesta');
+  // red de seguridad: si main.js no llega, la cortina se retira igual a los 6 s
+  setTimeout(function () { var c = document.getElementById('cortina'); if (c) c.hidden = true; window.__pontFuera(); }, 6000);
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap"></noscript>
+<link rel="stylesheet" href="css/estilos.css?v=212accc4">
+<link rel="stylesheet" href="css/3d.css">
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Casa O Pontillón",
+  "description": "Casa entera de granito para doce personas: seis dormitorios con baño propio, comedor con lareira, asador y cocina. Junto al Miño, en Cortegada (Ourense).",
+  "telephone": "+34 662 21 49 56",
+  "address": { "@type": "PostalAddress", "streetAddress": "Os Muíños, 40, San Bieito do Rabiño", "postalCode": "32200", "addressLocality": "Cortegada", "addressRegion": "Ourense", "addressCountry": "ES" },
+  "geo": { "@type": "GeoCoordinates", "latitude": 42.21599, "longitude": -8.16337 },
+  "checkinTime": "16:00", "checkoutTime": "12:00", "petsAllowed": true, "numberOfRooms": 6,
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "9.7", "bestRating": "10", "reviewCount": "66" }
+}</script>
+</head>
+<body>
+<a class="saltar" href="#principal">Saltar al contenido</a>
+
+<!-- CORTINA: los cristales de la galería se encienden uno a uno, de abajo arriba -->
+<div class="cortina" id="cortina" aria-hidden="true">
+  <div class="cortina-galeria" id="cortina-galeria"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <p class="cortina-nombre"><span>Casa</span>O Pontillón</p>
+</div>
+
+<header class="cab" id="cab">
+  <a class="cab-marca" href="#arriba" aria-label="Casa O Pontillón, volver al principio">
+    <svg class="cab-puente" viewBox="0 0 64 48" aria-hidden="true">
+      <path class="base" d="M6 30H58M14 30A18 18 0 0 1 50 30"/>
+      <path class="lectura" id="cab-lectura" pathLength="1" d="M14 30A18 18 0 0 1 50 30"/>
+      <path class="ondas" id="cab-ondas" d="M14 38q4.5-3 9 0t9 0 9 0 9 0M20 44q3-2 6 0t6 0 6 0 6 0"/>
+    </svg>
+    <span class="cab-nombre">Casa <i>O Pontillón</i></span>
+  </a>
+  <nav class="cab-nav" aria-label="Secciones">
+    <a href="#casa">La casa</a>
+    <a href="#dormir">¿Cabemos?</a>
+    <a href="#noche">De noche</a>
+    <a href="#alrededor">Alrededor</a>
+    <a href="#llegar">Cómo llegar</a>
+  </nav>
+  <a class="btn cab-reservar" href="#reserva">Reservar</a>
+  <button type="button" class="cab-menu" id="menu-btn" aria-expanded="false" aria-controls="menu-movil">Menú</button>
+</header>
+<div class="menu-movil" id="menu-movil" hidden>
+  <nav aria-label="Menú">
+    <a href="#casa">La casa</a>
+    <a href="#dormir">¿Cabemos?</a>
+    <a href="#noche">De noche</a>
+    <a href="#alrededor">Alrededor</a>
+    <a href="#opiniones">Opiniones</a>
+    <a href="#reserva">Reservar</a>
+    <a href="#llegar">Cómo llegar</a>
+  </nav>
+  <p class="menu-tel">Carmen · <a href="tel:+34662214956">662 21 49 56</a></p>
+</div>
+
+<main id="principal">
+
+<!-- PORTADA: la ventana abierta al valle, con el cielo de ahora. Arrastrar de lado mueve la hora -->
+<section class="portada" id="arriba" aria-labelledby="t-portada">
+  <div class="cielos" id="cielos" aria-hidden="true">
+    <svg class="cielo es-noche" id="cielo-noche" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+    <svg class="cielo es-dia" id="cielo-dia" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
+  <div class="ventana" aria-hidden="true"><i class="hoja izq"></i><i class="hoja der"></i></div>
+  <div class="portada-txt">
+    <p class="ant" id="portada-ahora">Os Muíños · Cortegada · junto al Miño</p>
+    <h1 id="t-portada">Dormir con la ventana abierta, <i>oyendo el río.</i></h1>
+    <p class="firma">Rebeca, en Booking · 9,7 de media en 66 comentarios</p>
+    <p class="bajada">Una casa de granito para doce, metida en una curva del Miño. Seis dormitorios con su baño, un comedor con lareira y la calma del Ribeiro.</p>
+    <div class="portada-botones">
+      <button type="button" class="oir" id="oir-portada" aria-pressed="false"><span class="ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="t">Escuchar el río</span></button>
+      <a class="btn" href="#reserva">Ver fechas</a>
+    </div>
+  </div>
+  <p class="portada-pista" id="portada-pista" aria-hidden="true">Desliza de lado para cambiar la hora</p>
+</section>
+
+<!-- LA CASA, CRISTAL A CRISTAL -->
+<section class="casa" id="casa" aria-labelledby="t-casa">
+  <div class="env">
+    <header class="sec-cab">
+      <p class="ant">La casa</p>
+      <h2 id="t-casa">Una torre de granito <i>con su galería verde</i></h2>
+      <p>Desde la calle, la casa se reconoce por su esquina: una torre redonda de piedra con una galería acristalada de marcos verdes y el nombre escrito en el granito. Dentro, 250 metros cuadrados para un grupo. Toca un cristal y se abre.</p>
+    </header>
+    <div class="galeria" id="galeria">
+      <div class="g-torre">
+        <div class="g-cornisa"></div>
+        <div class="g-panel" role="group" aria-label="Cristales de la galería: cada uno abre una parte de la casa">
+          <span class="planta-rot">Para dormir</span>
+          <button type="button" class="cristal" data-i="0" aria-pressed="false" aria-label="Un cuarto con la ventana al verde"><picture data-foto="dorm-verde"><source type="image/avif" srcset="img/fotos/dorm-verde-480.avif 480w, img/fotos/dorm-verde-800.avif 800w, img/fotos/dorm-verde-1024.avif 1024w" sizes="160px"><source type="image/webp" srcset="img/fotos/dorm-verde-480.webp 480w, img/fotos/dorm-verde-800.webp 800w, img/fotos/dorm-verde-1024.webp 1024w" sizes="160px"><img src="img/fotos/dorm-verde-800.jpg" srcset="img/fotos/dorm-verde-480.jpg 480w, img/fotos/dorm-verde-800.jpg 800w, img/fotos/dorm-verde-1024.jpg 1024w" sizes="160px" width="800" height="534" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <button type="button" class="cristal" data-i="1" aria-pressed="false" aria-label="Seis puertas, seis baños"><picture data-foto="dorm-cuadros"><source type="image/avif" srcset="img/fotos/dorm-cuadros-480.avif 480w, img/fotos/dorm-cuadros-800.avif 800w, img/fotos/dorm-cuadros-1024.avif 1024w" sizes="160px"><source type="image/webp" srcset="img/fotos/dorm-cuadros-480.webp 480w, img/fotos/dorm-cuadros-800.webp 800w, img/fotos/dorm-cuadros-1024.webp 1024w" sizes="160px"><img src="img/fotos/dorm-cuadros-800.jpg" srcset="img/fotos/dorm-cuadros-480.jpg 480w, img/fotos/dorm-cuadros-800.jpg 800w, img/fotos/dorm-cuadros-1024.jpg 1024w" sizes="160px" width="800" height="534" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <button type="button" class="cristal" data-i="2" aria-pressed="false" aria-label="El de las dos camas"><picture data-foto="dorm-dos"><source type="image/avif" srcset="img/fotos/dorm-dos-480.avif 480w, img/fotos/dorm-dos-800.avif 800w, img/fotos/dorm-dos-1024.avif 1024w" sizes="160px"><source type="image/webp" srcset="img/fotos/dorm-dos-480.webp 480w, img/fotos/dorm-dos-800.webp 800w, img/fotos/dorm-dos-1024.webp 1024w" sizes="160px"><img src="img/fotos/dorm-dos-800.jpg" srcset="img/fotos/dorm-dos-480.jpg 480w, img/fotos/dorm-dos-800.jpg 800w, img/fotos/dorm-dos-1024.jpg 1024w" sizes="160px" width="800" height="534" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <span class="planta-rot">Para estar</span>
+          <button type="button" class="cristal" data-i="3" aria-pressed="false" aria-label="El salón"><picture data-foto="salon"><source type="image/avif" srcset="img/fotos/salon-480.avif 480w, img/fotos/salon-800.avif 800w, img/fotos/salon-1200.avif 1200w, img/fotos/salon-1280.avif 1280w" sizes="160px"><source type="image/webp" srcset="img/fotos/salon-480.webp 480w, img/fotos/salon-800.webp 800w, img/fotos/salon-1200.webp 1200w, img/fotos/salon-1280.webp 1280w" sizes="160px"><img src="img/fotos/salon-800.jpg" srcset="img/fotos/salon-480.jpg 480w, img/fotos/salon-800.jpg 800w, img/fotos/salon-1200.jpg 1200w, img/fotos/salon-1280.jpg 1280w" sizes="160px" width="800" height="450" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <button type="button" class="cristal" data-i="4" aria-pressed="false" aria-label="Una cocina para un grupo"><picture data-foto="cocina"><source type="image/avif" srcset="img/fotos/cocina-480.avif 480w, img/fotos/cocina-800.avif 800w, img/fotos/cocina-1200.avif 1200w" sizes="160px"><source type="image/webp" srcset="img/fotos/cocina-480.webp 480w, img/fotos/cocina-800.webp 800w, img/fotos/cocina-1200.webp 1200w" sizes="160px"><img src="img/fotos/cocina-800.jpg" srcset="img/fotos/cocina-480.jpg 480w, img/fotos/cocina-800.jpg 800w, img/fotos/cocina-1200.jpg 1200w" sizes="160px" width="800" height="600" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <button type="button" class="cristal" data-i="5" aria-pressed="false" aria-label="La mesa larga"><picture data-foto="mantel"><source type="image/avif" srcset="img/fotos/mantel-480.avif 480w, img/fotos/mantel-675.avif 675w" sizes="160px"><source type="image/webp" srcset="img/fotos/mantel-480.webp 480w, img/fotos/mantel-675.webp 675w" sizes="160px"><img src="img/fotos/mantel-675.jpg" srcset="img/fotos/mantel-480.jpg 480w, img/fotos/mantel-675.jpg 675w" sizes="160px" width="675" height="900" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <span class="planta-rot">Abajo, la piedra</span>
+          <button type="button" class="cristal" data-i="6" aria-pressed="false" aria-label="La entrada de granito"><picture data-foto="entrada"><source type="image/avif" srcset="img/fotos/entrada-480.avif 480w, img/fotos/entrada-675.avif 675w" sizes="160px"><source type="image/webp" srcset="img/fotos/entrada-480.webp 480w, img/fotos/entrada-675.webp 675w" sizes="160px"><img src="img/fotos/entrada-675.jpg" srcset="img/fotos/entrada-480.jpg 480w, img/fotos/entrada-675.jpg 675w" sizes="160px" width="675" height="900" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <button type="button" class="cristal" data-i="7" aria-pressed="true" aria-label="El comedor de la lareira"><picture data-foto="lareira"><source type="image/avif" srcset="img/fotos/lareira-480.avif 480w, img/fotos/lareira-675.avif 675w" sizes="160px"><source type="image/webp" srcset="img/fotos/lareira-480.webp 480w, img/fotos/lareira-675.webp 675w" sizes="160px"><img src="img/fotos/lareira-675.jpg" srcset="img/fotos/lareira-480.jpg 480w, img/fotos/lareira-675.jpg 675w" sizes="160px" width="675" height="900" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+          <button type="button" class="cristal" data-i="8" aria-pressed="false" aria-label="Lo que guarda la pared"><picture data-foto="piedra"><source type="image/avif" srcset="img/fotos/piedra-480.avif 480w, img/fotos/piedra-800.avif 800w, img/fotos/piedra-1024.avif 1024w" sizes="160px"><source type="image/webp" srcset="img/fotos/piedra-480.webp 480w, img/fotos/piedra-800.webp 800w, img/fotos/piedra-1024.webp 1024w" sizes="160px"><img src="img/fotos/piedra-800.jpg" srcset="img/fotos/piedra-480.jpg 480w, img/fotos/piedra-800.jpg 800w, img/fotos/piedra-1024.jpg 1024w" sizes="160px" width="800" height="534" alt="" loading="lazy" decoding="async"></picture><span class="hoja"></span></button>
+        </div>
+        <div class="g-base"><span>Casa<br>O Pontillón</span></div>
+      </div>
+      <div class="g-detalle" aria-live="polite">
+        <div class="g-fotos">
+          <figure data-i="0" hidden><picture data-foto="dorm-verde"><source type="image/avif" srcset="img/fotos/dorm-verde-480.avif 480w, img/fotos/dorm-verde-800.avif 800w, img/fotos/dorm-verde-1024.avif 1024w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/dorm-verde-480.webp 480w, img/fotos/dorm-verde-800.webp 800w, img/fotos/dorm-verde-1024.webp 1024w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/dorm-verde-800.jpg" srcset="img/fotos/dorm-verde-480.jpg 480w, img/fotos/dorm-verde-800.jpg 800w, img/fotos/dorm-verde-1024.jpg 1024w" sizes="(max-width: 860px) 100vw, 640px" width="800" height="534" alt="Dormitorio doble con cabecero de hierro y la ventana abierta a los árboles" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="1" hidden><picture data-foto="dorm-cuadros"><source type="image/avif" srcset="img/fotos/dorm-cuadros-480.avif 480w, img/fotos/dorm-cuadros-800.avif 800w, img/fotos/dorm-cuadros-1024.avif 1024w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/dorm-cuadros-480.webp 480w, img/fotos/dorm-cuadros-800.webp 800w, img/fotos/dorm-cuadros-1024.webp 1024w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/dorm-cuadros-800.jpg" srcset="img/fotos/dorm-cuadros-480.jpg 480w, img/fotos/dorm-cuadros-800.jpg 800w, img/fotos/dorm-cuadros-1024.jpg 1024w" sizes="(max-width: 860px) 100vw, 640px" width="800" height="534" alt="Dormitorio con colcha de cuadros verdes y armario de madera" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="2" hidden><picture data-foto="dorm-dos"><source type="image/avif" srcset="img/fotos/dorm-dos-480.avif 480w, img/fotos/dorm-dos-800.avif 800w, img/fotos/dorm-dos-1024.avif 1024w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/dorm-dos-480.webp 480w, img/fotos/dorm-dos-800.webp 800w, img/fotos/dorm-dos-1024.webp 1024w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/dorm-dos-800.jpg" srcset="img/fotos/dorm-dos-480.jpg 480w, img/fotos/dorm-dos-800.jpg 800w, img/fotos/dorm-dos-1024.jpg 1024w" sizes="(max-width: 860px) 100vw, 640px" width="800" height="534" alt="Dormitorio con dos camas individuales de colcha naranja" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="3" hidden><picture data-foto="salon"><source type="image/avif" srcset="img/fotos/salon-480.avif 480w, img/fotos/salon-800.avif 800w, img/fotos/salon-1200.avif 1200w, img/fotos/salon-1280.avif 1280w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/salon-480.webp 480w, img/fotos/salon-800.webp 800w, img/fotos/salon-1200.webp 1200w, img/fotos/salon-1280.webp 1280w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/salon-800.jpg" srcset="img/fotos/salon-480.jpg 480w, img/fotos/salon-800.jpg 800w, img/fotos/salon-1200.jpg 1200w, img/fotos/salon-1280.jpg 1280w" sizes="(max-width: 860px) 100vw, 640px" width="800" height="450" alt="Salón con tresillos, mesa baja y tele" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="4" hidden><picture data-foto="cocina"><source type="image/avif" srcset="img/fotos/cocina-480.avif 480w, img/fotos/cocina-800.avif 800w, img/fotos/cocina-1200.avif 1200w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/cocina-480.webp 480w, img/fotos/cocina-800.webp 800w, img/fotos/cocina-1200.webp 1200w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/cocina-800.jpg" srcset="img/fotos/cocina-480.jpg 480w, img/fotos/cocina-800.jpg 800w, img/fotos/cocina-1200.jpg 1200w" sizes="(max-width: 860px) 100vw, 640px" width="800" height="600" alt="Cocina grande con fogones, horno y armarios claros" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="5" hidden><picture data-foto="mantel"><source type="image/avif" srcset="img/fotos/mantel-480.avif 480w, img/fotos/mantel-675.avif 675w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/mantel-480.webp 480w, img/fotos/mantel-675.webp 675w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/mantel-675.jpg" srcset="img/fotos/mantel-480.jpg 480w, img/fotos/mantel-675.jpg 675w" sizes="(max-width: 860px) 100vw, 640px" width="675" height="900" alt="Comedor con dos mesas en fila y manteles de cuadros" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="6" hidden><picture data-foto="entrada"><source type="image/avif" srcset="img/fotos/entrada-480.avif 480w, img/fotos/entrada-675.avif 675w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/entrada-480.webp 480w, img/fotos/entrada-675.webp 675w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/entrada-675.jpg" srcset="img/fotos/entrada-480.jpg 480w, img/fotos/entrada-675.jpg 675w" sizes="(max-width: 860px) 100vw, 640px" width="675" height="900" alt="Recibidor con paredes de granito, escalera de madera y una barrica" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="7"><picture data-foto="lareira"><source type="image/avif" srcset="img/fotos/lareira-480.avif 480w, img/fotos/lareira-675.avif 675w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/lareira-480.webp 480w, img/fotos/lareira-675.webp 675w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/lareira-675.jpg" srcset="img/fotos/lareira-480.jpg 480w, img/fotos/lareira-675.jpg 675w" sizes="(max-width: 860px) 100vw, 640px" width="675" height="900" alt="Comedor con lareira de piedra y mesa larga con bancos" loading="lazy" decoding="async"></picture></figure>
+          <figure data-i="8" hidden><picture data-foto="piedra"><source type="image/avif" srcset="img/fotos/piedra-480.avif 480w, img/fotos/piedra-800.avif 800w, img/fotos/piedra-1024.avif 1024w" sizes="(max-width: 860px) 100vw, 640px"><source type="image/webp" srcset="img/fotos/piedra-480.webp 480w, img/fotos/piedra-800.webp 800w, img/fotos/piedra-1024.webp 1024w" sizes="(max-width: 860px) 100vw, 640px"><img src="img/fotos/piedra-800.jpg" srcset="img/fotos/piedra-480.jpg 480w, img/fotos/piedra-800.jpg 800w, img/fotos/piedra-1024.jpg 1024w" sizes="(max-width: 860px) 100vw, 640px" width="800" height="534" alt="Muro de granito con una repisa de cántaros, faroles y una radio antigua" loading="lazy" decoding="async"></picture></figure>
+        </div>
+        <p class="g-planta" id="g-planta">Abajo, la piedra</p>
+        <h3 id="g-tit">El comedor de la lareira</h3>
+        <p id="g-txt">«Tiene un comedor con lareira espectacular en la planta baja», escribe Rebeca. Mesa de madera y bancos para todos.</p>
+        <div class="fila"><button type="button" class="chip" id="g-noche" aria-pressed="false">Encender la galería</button><button type="button" class="chip" id="g-todos" aria-pressed="false">Abrir todos</button></div>
+      </div>
+    </div>
+    <ul class="servicios" aria-label="Lo que tiene la casa">
+      <li><b>250 m²</b>la casa entera, solo para vosotros</li>
+      <li><b>6 + 6</b>dormitorios, cada uno con su baño</li>
+      <li><b>Lareira</b>y asador en la planta baja</li>
+      <li><b>Cocina</b>con lavavajillas, y lavadora</li>
+      <li><b>Calefacción</b>y aire acondicionado</li>
+      <li><b>Wifi</b>con un 10 en Booking</li>
+      <li><b>Aparcamiento</b>privado y gratis</li>
+      <li><b>Perros</b>gratis, y cuna gratis</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ¿CÓMO DORMIMOS? Grupo, cuartos, baños, mesa y precio -->
+<section class="dormir" id="dormir" aria-labelledby="t-dormir">
+  <div class="env">
+    <header class="sec-cab">
+      <p class="ant">Para familias y grupos</p>
+      <h2 id="t-dormir">Doce sitios en la mesa. <i>Seis puertas, seis baños.</i></h2>
+      <p>Cinco dormitorios con cama doble y uno con dos camas, cada uno con su baño: en grupo, nadie hace cola. Decid cuántos sois y os repartimos.</p>
+    </header>
+    <div class="grupo" id="grupo">
+      <div class="g-mandos">
+        <div class="paso"><span>Personas</span><button type="button" data-d="n" data-v="-1" aria-label="Una persona menos">−</button><output id="c-n" aria-live="polite">8</output><button type="button" data-d="n" data-v="1" aria-label="Una persona más">+</button></div>
+        <div class="paso"><span>De ellas, parejas</span><button type="button" data-d="p" data-v="-1" aria-label="Una pareja menos">−</button><output id="c-p">3</output><button type="button" data-d="p" data-v="1" aria-label="Una pareja más">+</button></div>
+        <div class="paso"><span>Bebés (cuna gratis)</span><button type="button" data-d="b" data-v="-1" aria-label="Un bebé menos">−</button><output id="c-b">0</output><button type="button" data-d="b" data-v="1" aria-label="Un bebé más">+</button></div>
+        <label class="casilla"><input type="checkbox" id="c-perro"> Con perro <span>(gratis)</span></label>
+        <p class="g-res" id="c-res" aria-live="polite"></p>
+        <dl class="g-precio"><dt>Por persona y noche</dt><dd id="c-pp">—</dd><dt>La casa, por noche</dt><dd id="c-noche">—</dd></dl>
+        <p class="nota">Precios orientativos, como los de Booking para noviembre. Los niños de 4 años en adelante cuentan como adultos.</p>
+        <button type="button" class="btn" id="c-ir">Ver fechas para 8</button>
+      </div>
+      <svg class="esquema" id="esquema" viewBox="0 0 900 560" role="img" aria-label="Esquema de la casa con los seis dormitorios, sus baños y quién duerme en cada uno"></svg>
+    </div>
+  </div>
+</section>
+
+<!-- DE NOCHE: lo que se oye desde la cama -->
+<section class="noche" id="noche" aria-labelledby="t-noche">
+  <div class="env">
+    <header class="sec-cab">
+      <p class="ant">De noche</p>
+      <h2 id="t-noche">Lo que se oye <i>desde la cama</i></h2>
+      <p>El agua, la leña de la lareira, los grillos de agosto y el cárabo del invierno. Arranca con lo que sonaría a esta hora en Os Muíños; mueve cada barra a tu gusto.</p>
+    </header>
+    <div class="sonido" id="sonido">
+      <div class="s-ventana">
+        <svg id="cielo-sonido" viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
+        <canvas id="onda" aria-hidden="true"></canvas>
+        <p class="s-ahora" id="s-ahora">—</p>
+      </div>
+      <div class="s-mesa">
+        <button type="button" class="oir grande" id="oir-noche" aria-pressed="false"><span class="ondas" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="t">Encender el sonido</span></button>
+        <div class="pistas" id="pistas"></div>
+        <div class="fila" role="group" aria-label="Momentos"><button type="button" class="chip" data-mez="ahora" aria-pressed="true">Esta hora</button><button type="button" class="chip" data-mez="verano">Noche de agosto</button><button type="button" class="chip" data-mez="invierno">Noche de enero</button><button type="button" class="chip" data-mez="lluvia">Día de lluvia</button></div>
+        <p class="nota">Sonidos recreados en tu navegador, a la espera de grabarlos en la casa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALREDEDOR: el Miño en 3D (lo pinta el módulo 3D en #rio) y los lugares -->
+<section class="alrededor" id="alrededor" aria-labelledby="t-alrededor">
+  <div class="env">
+    <header class="sec-cab">
+      <p class="ant">Alrededor</p>
+      <h2 id="t-alrededor">En la curva <i>del Miño</i></h2>
+      <p>El río, aquí embalsado en Frieira, dibuja una S enorme, y la casa está dentro de una de sus curvas, a unos 400 metros del agua. Vuela por él con la luz de ahora y luego muévete a tu aire.</p>
+    </header>
+  </div>
+  <div class="env ancho" id="rio">
+    <div class="rio-marco" id="rio-marco">
+      <img id="rio-poster" class="rio-poster" src="img/terreno/plano.jpg" alt="El valle del Miño en relieve, con la S del embalse de Frieira y la casa dentro de una curva"  loading="lazy" decoding="async">
+      <div class="rio-lienzo" id="rio-lienzo"></div>
+      <div class="rotulos" id="rio-rotulos" aria-hidden="true"></div>
+      <button type="button" class="rio-mover" id="rio-mover" hidden>Mover el mapa</button>
+      <p class="rio-carga" id="rio-carga">Cargando el relieve…</p>
+      <p class="rio-chip" id="rio-chip">Ahora en O Pontillón…</p>
+    </div>
+    <div class="rio-mandos">
+      <label for="rio-hora">Hora de hoy en O Pontillón: <b id="rio-hora-txt">--:--</b></label>
+      <input type="range" id="rio-hora" min="0" max="1439" step="1" value="720">
+      <div class="fila" role="group" aria-label="Momentos del día"><button type="button" class="chip" data-h="ahora">Ahora</button><button type="button" class="chip" data-h="sale">Amanecer</button><button type="button" class="chip" data-h="mediodia">Mediodía</button><button type="button" class="chip" data-h="pone">Atardecer</button><button type="button" class="chip" data-h="noche">Noche</button></div>
+      <p class="rio-lectura" id="rio-lectura" aria-live="polite"></p>
+      <div class="fila" role="group" aria-label="Vista"><button type="button" class="chip" id="rio-volar">Volar por el río</button><button type="button" class="chip" id="rio-casa" aria-pressed="false">Bajar a la casa</button><button type="button" class="chip" id="rio-3d" aria-pressed="true">En 3D</button><button type="button" class="chip" id="rio-plano" aria-pressed="false">En plano</button></div>
+      <p class="rio-fuente">Relieve MDT05 y ortofoto PNOA © Instituto Geográfico Nacional (CC BY 4.0). Lugares: © colaboradores de OpenStreetMap.</p>
+    </div>
+  </div>
+  <div class="env">
+    <ul class="lugares">
+      <li><span class="dist">400 m</span><div><h3>El Miño</h3><p>El embalse de Frieira, al norte de la casa. Agua quieta, orillas de bosque y la vía del tren por la ribera.</p></div></li>
+      <li><span class="dist">400 m</span><div><h3>San Bieito do Rabiño</h3><p>La iglesia barroca de la parroquia, con su cementerio y O Humilladoiro. La tradición dice que el santo cura las verrugas.</p></div></li>
+      <li><span class="dist">700 m</span><div><h3>Petróglifos de Ferradura</h3><p>Grabados en la roca, a un paseo de casa. Al lado, la Casa Grande da Granxa, un pazo con su capilla.</p></div></li>
+      <li><span class="dist">a pie</span><div><h3>El Camino da Geira e dos Arrieiros</h3><p>El camino entre el Ribeiro y el Miño que Carmen llama Ribeiro-Miñoto pasa por la aldea.</p></div></li>
+      <li><span class="dist">10 min</span><div><h3>Termas de Prexigueiro</h3><p>Pozas de agua termal al aire libre. «A unos diez minutos en coche», dicen los que han venido.</p></div></li>
+      <li><span class="dist">13 km</span><div><h3>Ribadavia</h3><p>La capital del Ribeiro: su judería, el castillo de los Sarmiento y las bodegas.</p></div></li>
+      <li><span class="dist">43 km</span><div><h3>Ourense</h3><p>As Burgas, la catedral y las termas del Miño.</p></div></li>
+      <li><span class="dist">2 km</span><div><h3>Cortegada</h3><p>Restaurantes, farmacia, panadería, bares y centro de salud, a menos de dos kilómetros. Y su balneario.</p></div></li>
+    </ul>
+    <p class="nota">Distancias en línea recta (las de a pie) y las que da Carmen (las de coche). Por confirmar sobre el terreno.</p>
+  </div>
+</section>
+
+<!-- CARMEN Y OPINIONES -->
+<section class="opiniones" id="opiniones" aria-labelledby="t-opiniones">
+  <div class="env">
+    <header class="sec-cab">
+      <p class="ant">Quien ha venido</p>
+      <h2 id="t-opiniones">Un 9,7 <i>y gente que repite</i></h2>
+    </header>
+    <div class="op-rejilla">
+      <div class="op-nota">
+        <p class="op-num">9,7</p>
+        <p class="op-fuente">Booking · 66 comentarios</p>
+        <dl class="op-desglose">
+          <dt>Limpieza</dt><dd><i style="--v:.98"></i>9,8</dd>
+          <dt>Confort</dt><dd><i style="--v:.98"></i>9,8</dd>
+          <dt>Instalaciones</dt><dd><i style="--v:.98"></i>9,8</dd>
+          <dt>Personal</dt><dd><i style="--v:.98"></i>9,8</dd>
+          <dt>Calidad-precio</dt><dd><i style="--v:.98"></i>9,8</dd>
+          <dt>Ubicación</dt><dd><i style="--v:.94"></i>9,4</dd>
+          <dt>Wifi</dt><dd><i style="--v:1"></i>10</dd>
+        </dl>
+        <p class="op-google">Google <b>4,9</b> sobre 5</p>
+      </div>
+      <div class="op-citas">
+        <blockquote><p>«Que cada habitación tenía su propio lavabo, el nivel de limpieza, la amplitud de la casa en general. El ambiente rural al lado del Miño.»</p></blockquote>
+        <blockquote><p>«Fuimos un grupo de amigos, nueve adultos, dos niños y un perro. Estuvimos muy cómodos y muy a gusto.»</p></blockquote>
+        <blockquote><p>«Nos gustó todo como siempre. No es la primera vez que vamos y seguro que repetiremos.»</p></blockquote>
+      </div>
+      <div class="carmen">
+        <p class="ant">Os recibe</p>
+        <p class="carmen-nombre">Carmen</p>
+        <p>Un 9,8 como anfitriona. «Carmen, una magnífica persona», escribe Marco. Habla castellano e inglés.</p>
+        <p class="carmen-tel"><a href="tel:+34662214956">662 21 49 56</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA: motor de DEMOSTRACIÓN -->
+<section class="reserva" id="reserva" aria-labelledby="t-reserva">
+  <div class="env">
+    <header class="sec-cab">
+      <p class="ant">Reservar</p>
+      <h2 id="t-reserva">Elige los días <i>y cuántos venís</i></h2>
+      <p>La casa se alquila entera. Mira los días libres y lo que sale por persona.</p>
+    </header>
+    <div class="motor">
+      <div class="motor-cal">
+        <div class="cal-nav"><button type="button" id="cal-ant" aria-label="Mes anterior">‹</button><b id="cal-mes">—</b><button type="button" id="cal-sig" aria-label="Mes siguiente">›</button></div>
+        <div class="cal" id="cal"></div>
+        <div class="leyenda-cal"><span><i></i>Libre</span><span><i class="l2"></i>Ocupada</span><span><i class="l3"></i>Tu estancia</span></div>
+      </div>
+      <div class="resumen">
+        <label for="res-pers">Personas (los niños de 4 años en adelante cuentan)</label>
+        <select id="res-pers"></select>
+        <label class="casilla"><input type="checkbox" id="res-des"> Desayuno <span>(5 € por persona y día)</span></label>
+        <label class="casilla"><input type="checkbox" id="res-perro"> Viajo con perro <span>(gratis)</span></label>
+        <dl>
+          <dt>Llegada</dt><dd id="res-llega">elige un día</dd>
+          <dt>Salida</dt><dd id="res-sale">—</dd>
+          <dt>Noches</dt><dd id="res-noches">—</dd>
+          <dt>Por persona y noche</dt><dd id="res-pp">—</dd>
+          <dt>Total</dt><dd class="total" id="res-total">—</dd>
+        </dl>
+        <button type="button" class="btn" id="res-btn" disabled>Pedir esta reserva</button>
+        <p class="msg" id="res-msg" aria-live="polite"></p>
+        <p class="demo">Motor de demostración: no envía ni guarda nada y la ocupación es inventada. Precios orientativos.</p>
+      </div>
+    </div>
+    <dl class="saber">
+      <div><dt>Entrada</dt><dd>De 16:00 a 20:00. Avisa a Carmen de la hora.</dd></div>
+      <div><dt>Salida</dt><dd>De 9:00 a 12:00.</dd></div>
+      <div><dt>Niños</dt><dd>Bienvenidos. Desde los 4 años cuentan como adultos; cuna gratis a petición.</dd></div>
+      <div><dt>Perros</dt><dd>Gratis.</dd></div>
+      <div><dt>Tabaco</dt><dd>No se fuma dentro.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- CÓMO LLEGAR -->
+<section class="llegar" id="llegar" aria-labelledby="t-llegar">
+  <div class="env llegar-rejilla">
+    <div>
+      <p class="ant">Cómo llegar</p>
+      <h2 id="t-llegar">Os Muíños, <i>San Bieito do Rabiño</i></h2>
+      <p class="dir">Os Muíños, 40 · 32200 Cortegada (Ourense)</p>
+      <p>Por la OU-801 desde Cortegada. Ribadavia, a 13 km; Ourense, a 43 km; el aeropuerto de Vigo, a 61 km. Estación de tren en Filgueira, a 3,8 km.</p>
+      <p class="tel">Carmen · <a href="tel:+34662214956">662 21 49 56</a></p>
+    </div>
+    <div class="mapa" id="mapa">
+      <button type="button" class="mapa-btn" id="mapa-btn">
+        <svg viewBox="0 0 64 48" aria-hidden="true"><use href="#marca-puente"/></svg>
+        <b>Ver el mapa</b>
+        <span>Al pulsar se carga un mapa de Google, que puede guardar sus propias cookies.</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- PIE: el pontillón se completa, con el agua debajo -->
+<footer class="pie" id="pie">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+    <symbol id="marca-puente" viewBox="0 0 64 48"><g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 30H58M14 30A18 18 0 0 1 50 30"/><path d="M8 30A24 24 0 0 1 56 30" opacity=".55"/><path d="M19.5 17.5L15.3 13.2M32 12V6.5M44.5 17.5L48.7 13.2M24.6 13.8L22.4 8.4M39.4 13.8L41.6 8.4" stroke-width="2.2"/><path d="M14 38q4.5-3 9 0t9 0 9 0 9 0" stroke-width="2.4"/><path d="M20 44q3-2 6 0t6 0 6 0 6 0" stroke-width="2" opacity=".6"/></g></symbol>
+  </defs></svg>
+  <div class="pie-puente" id="pie-puente">
+    <svg viewBox="0 0 600 260" aria-hidden="true">
+      <path class="pie-orilla" d="M0 190 C60 186 90 176 120 178 L120 260 L0 260Z M600 190 C540 186 510 176 480 178 L480 260 L600 260Z"/>
+      <path class="pie-arco" pathLength="1" d="M120 178 A180 180 0 0 1 480 178"/>
+      <path class="pie-arco fino" pathLength="1" d="M90 178 A210 210 0 0 1 510 178"/>
+      <path class="pie-tablero" pathLength="1" d="M40 178 H560"/>
+      <path class="pie-dovelas" d="M168 112L150 92M215 76L205 52M268 58L264 32M332 58L336 32M385 76L395 52M432 112L450 92"/>
+      <path class="pie-agua" d="M130 214q28-14 56 0t56 0 56 0 56 0 56 0 56 0M170 240q22-10 44 0t44 0 44 0 44 0 44 0"/>
+      <text class="pie-texto" x="300" y="150" text-anchor="middle">O PONTILLÓN</text>
+    </svg>
+  </div>
+  <div class="env pie-cuerpo">
+    <div class="pie-marca">
+      <p class="pie-nombre">Casa <i>O Pontillón</i></p>
+      <p>Casa de granito para doce, junto al Miño.<br>Os Muíños, 40 · 32200 Cortegada (Ourense)</p>
+      <p>Carmen · <a href="tel:+34662214956">662 21 49 56</a></p>
+    </div>
+    <nav class="pie-enlaces" aria-label="Información legal">
+      <a href="aviso-legal.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+      <a href="accesibilidad.html">Accesibilidad</a>
+      <button type="button" class="pie-cookies" id="abrir-cookies">Preferencias de cookies</button>
+    </nav>
+    <div class="pie-creditos">
+      <p>Licencia <b>2024C3627180102</b> · registro <b>ESFCTU00003200500042634700000000000000000H-OR-0009196</b></p>
+      <p>Relieve MDT05 y ortofoto PNOA © Instituto Geográfico Nacional (CC BY 4.0). Lugares: © colaboradores de OpenStreetMap.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- barra fija del móvil: aparece al dejar la portada -->
+<div class="barra" id="barra">
+  <p><b>Para doce</b> · desde unos 17 € por persona</p>
+  <a class="btn" href="#reserva">Ver fechas</a>
+</div>
+
+<div class="cookies" id="cookies" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Esta web no usa cookies de análisis ni de publicidad. Solo guarda en tu navegador que has visto este aviso. Las letras se cargan de Google Fonts y el mapa de Google solo si lo pides. <a href="cookies.html">Más información</a></p>
+  <div class="cookies-botones">
+    <button type="button" class="btn" id="ck-si">Entendido</button>
+    <button type="button" class="btn-linea" id="ck-no">Cerrar</button>
+  </div>
+</div>
+
+<!-- MANDO DE MAQUETA: solo con ?revision. Receta de borrado en el README -->
+<div class="mando" id="mando" role="group" aria-label="Dos versiones de la misma web" hidden>
+  <p>Versión</p>
+  <button type="button" data-densidad="cargada" aria-pressed="true">La ventana</button>
+  <button type="button" data-densidad="sobria" aria-pressed="false">Sobria</button>
+</div>
+<!-- fin del MANDO DE MAQUETA -->
+
+<script src="js/escena.js?v=d40e0c4d" defer></script>
+<script src="js/main.js?v=af0c3372" defer></script>
+<script type="module" src="js/3d/arranque.js" onerror="window.__pont3dFallo &amp;&amp; window.__pont3dFallo()"></script>
+</body>
+</html>
